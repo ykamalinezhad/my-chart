@@ -1,0 +1,19 @@
+.eightCap-card{
+    height: 600px;
+}
+
+.form-filters {
+    float: right;
+}
+
+.filters {
+    width: 530px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.filter-fields {
+    width: 250px;
+    max-width: 250px;
+}

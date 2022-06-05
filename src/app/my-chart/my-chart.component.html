@@ -1,0 +1,49 @@
+<mat-card class="eightCap-card">
+    <mat-card-title><img src="/assets/images/logo.png"></mat-card-title>
+    <mat-card-content>
+        <h1>Yalda Kamali Nezhad</h1>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+        <form *ngIf="!isLoading" class="form-filters" [formGroup]="form" autocomplete="off">
+            <div class="filters">
+                <mat-form-field class="filter-fields" appearance="outline">
+                    <mat-label>Time Window</mat-label>
+                    <mat-select placeholder="Time Window" formControlName="timeWindow" ngDefaultControl>
+                    <mat-option
+                        *ngFor="let timeOption of timeWindowOptions"
+                        [value]="timeOption"
+                        >{{ timeOption.value }}
+                    </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                
+                <mat-form-field  class="filter-fields" appearance="outline">
+                    <mat-label>Symbol pairs</mat-label>
+                    <mat-select placeholder="Symbol pairs" formControlName="symbolPairs" ngDefaultControl>
+                        <mat-option
+                            *ngFor="let symbolPair of symbolPairOptions"
+                            [value]="symbolPair"
+                        >{{ symbolPair.displaySymbol }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </form>
+        <br>
+        <apx-chart
+            [series]="series"
+            [chart]="chart"
+            [dataLabels]="dataLabels"
+            [markers]="markers"
+            [title]="title"
+            [fill]="fill"
+            [yaxis]="yaxis"
+            [xaxis]="xaxis"
+            [tooltip]="tooltip"
+            [autoUpdateSeries]="true"
+        ></apx-chart>
+    </mat-card-content>
+</mat-card>
+
+
+
+
